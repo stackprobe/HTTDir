@@ -19,5 +19,5 @@ http://stackprobe.dip.jp/HTTDir
 マニュアル
 ----------
 
-TODO*
+https://github.com/stackprobe/HTTDir/blob/master/doc/Readme.txt
 
