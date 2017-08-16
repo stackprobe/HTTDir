@@ -7,12 +7,6 @@ HTTDir
 ビルド済み配布物
 ----------------
 
-以下の場所からダウンロードできます。
-
-Vector
-http://www.vector.co.jp/soft/winnt/net/se511269.html
-
-うちのサイト
 http://stackprobe.dip.jp/HTTDir
 
 
