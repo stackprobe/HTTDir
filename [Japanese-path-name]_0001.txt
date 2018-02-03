@@ -3,3 +3,4 @@
 	..\HTT\Get\Release\Get.exe
 	..\HTT\HTT\Release\HTT.exe
 	..\HTT\doc\HTT.conf
+	..\HTT\doc\MimeType.tsv_
