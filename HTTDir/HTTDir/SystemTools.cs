@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Windows.Forms;
 
 namespace HTTDir
@@ -29,6 +30,65 @@ namespace HTTDir
 					MessageBoxButtons.OK,
 					MessageBoxIcon.Error
 					);
+			}
+			catch
+			{ }
+		}
+
+		public static void AntiWindowsDefenderSmartScreen()
+		{
+			WriteLog("awdss_1");
+
+			if (初回起動Flag)
+			{
+				WriteLog("awdss_2");
+
+				foreach (string exeFile in Directory.GetFiles(BootTools.SelfDir, "*.exe", SearchOption.AllDirectories))
+				{
+					try
+					{
+						WriteLog("awdss_exeFile: " + exeFile);
+
+						if (exeFile.ToLower() == BootTools.SelfFile.ToLower())
+						{
+							WriteLog("awdss_self_noop");
+						}
+						else
+						{
+							byte[] exeData = File.ReadAllBytes(exeFile);
+							File.Delete(exeFile);
+							File.WriteAllBytes(exeFile, exeData);
+						}
+						WriteLog("awdss_OK");
+					}
+					catch
+					{ }
+				}
+				WriteLog("awdss_3");
+			}
+			WriteLog("awdss_4");
+		}
+
+		private static bool 初回起動Flag = false;
+		private static string LogFile = null;
+
+		public static void WriteLog(object message)
+		{
+			try
+			{
+				if (LogFile == null)
+				{
+					LogFile = Path.Combine(BootTools.SelfDir, Path.GetFileNameWithoutExtension(BootTools.SelfFile) + ".log");
+
+					初回起動Flag = File.Exists(LogFile) == false;
+
+					File.Delete(LogFile);
+				}
+
+				using (StreamWriter writer = new StreamWriter(LogFile, true, Encoding.UTF8))
+				{
+					writer.WriteLine("[" + DateTime.Now + "] " + message);
+				}
 			}
 			catch
 			{ }

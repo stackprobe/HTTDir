@@ -41,6 +41,8 @@ namespace HTTDir
 				CheckSelfDir();
 				CheckCopiedExe();
 
+				SystemTools.AntiWindowsDefenderSmartScreen();
+
 				Gnd.LoadConfFile();
 
 				// HTT.exe ゾンビ対策は HTTProc.ctor でやってる。
