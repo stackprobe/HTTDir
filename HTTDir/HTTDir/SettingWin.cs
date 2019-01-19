@@ -27,6 +27,8 @@ namespace HTTDir
 		{
 			this.PortNo.SelectAll();
 			this.DocRoot.SelectionStart = this.DocRoot.Text.Length;
+
+			SystemTools.PostShown(this);
 		}
 
 		private void SettingWin_FormClosed(object sender, FormClosedEventArgs e)
