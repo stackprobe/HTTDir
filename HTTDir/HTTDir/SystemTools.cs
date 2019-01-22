@@ -35,6 +35,8 @@ namespace HTTDir
 			{ }
 		}
 
+		// sync > @ AntiWindowsDefenderSmartScreen
+
 		public static void AntiWindowsDefenderSmartScreen()
 		{
 			WriteLog("awdss_1");
@@ -71,6 +73,8 @@ namespace HTTDir
 			WriteLog("awdss_4");
 		}
 
+		// < sync
+
 		private static bool 初回起動Flag = false;
 		private static string LogFile = null;
 		private static long WL_Count = 0;
@@ -94,6 +98,8 @@ namespace HTTDir
 			catch
 			{ }
 		}
+
+		// sync > @ PostShown
 
 		public static void PostShown(Form f)
 		{
@@ -119,5 +125,7 @@ namespace HTTDir
 				}
 			}
 		}
+
+		// < sync
 	}
 }
