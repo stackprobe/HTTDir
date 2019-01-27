@@ -41,7 +41,7 @@ namespace HTTDir
 		{
 			WriteLog("awdss_1");
 
-			if (初回起動Flag)
+			if (Is初回起動())
 			{
 				WriteLog("awdss_2");
 
@@ -75,6 +75,11 @@ namespace HTTDir
 
 		// < sync
 
+		public static bool Is初回起動()
+		{
+			return 初回起動Flag;
+		}
+
 		private static bool 初回起動Flag = false;
 		private static string LogFile = null;
 		private static long WL_Count = 0;
@@ -103,24 +108,53 @@ namespace HTTDir
 
 		public static void PostShown(Form f)
 		{
-			foreach (Control control in f.Controls)
+			List<Control.ControlCollection> controlTable = new List<Control.ControlCollection>();
+
+			controlTable.Add(f.Controls);
+
+			for (int index = 0; index < controlTable.Count; index++)
 			{
-				TextBox tb = control as TextBox;
-
-				if (tb != null)
+				foreach (Control control in controlTable[index])
 				{
-					if (tb.ContextMenuStrip == null)
+					GroupBox gb = control as GroupBox;
+
+					if (gb != null)
 					{
-						ToolStripMenuItem item = new ToolStripMenuItem();
+						controlTable.Add(gb.Controls);
+					}
+					TabControl tc = control as TabControl;
 
-						item.Text = "項目なし";
-						item.Enabled = false;
+					if (tc != null)
+					{
+						foreach (TabPage tp in tc.TabPages)
+						{
+							controlTable.Add(tp.Controls);
+						}
+					}
+					SplitContainer sc = control as SplitContainer;
 
-						ContextMenuStrip menu = new ContextMenuStrip();
+					if (sc != null)
+					{
+						controlTable.Add(sc.Panel1.Controls);
+						controlTable.Add(sc.Panel2.Controls);
+					}
+					TextBox tb = control as TextBox;
 
-						menu.Items.Add(item);
+					if (tb != null)
+					{
+						if (tb.ContextMenuStrip == null)
+						{
+							ToolStripMenuItem item = new ToolStripMenuItem();
 
-						tb.ContextMenuStrip = menu;
+							item.Text = "項目なし";
+							item.Enabled = false;
+
+							ContextMenuStrip menu = new ContextMenuStrip();
+
+							menu.Items.Add(item);
+
+							tb.ContextMenuStrip = menu;
+						}
 					}
 				}
 			}
