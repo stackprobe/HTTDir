@@ -1,4 +1,4 @@
-���ȉ��̊O���t�@�C���������[�X���Ɋ܂߂�B
+■以下の外部ファイルをリリース物に含める。
 
 	..\HTT\Get\Release\Get.exe
 	..\HTT\HTT\Release\HTT.exe
