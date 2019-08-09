@@ -13,7 +13,7 @@ namespace HTTDir
 {
 	// sync > @ GlobalProcMtx
 
-	public class GlobalProcMtx
+	public static class GlobalProcMtx
 	{
 		private static Mutex ProcMtx;
 

@@ -8,7 +8,7 @@ using System.IO;
 
 namespace HTTDir
 {
-	public class Gnd
+	public static class Gnd
 	{
 		public const string HTT_APP_UUID = "{4a33312e-c34a-424e-bc11-31842fcbd78f}";
 

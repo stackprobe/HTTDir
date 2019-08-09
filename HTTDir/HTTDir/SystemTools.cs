@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace HTTDir
 {
-	public class SystemTools
+	public static class SystemTools
 	{
 		public static Queue<string> GetArgq()
 		{
