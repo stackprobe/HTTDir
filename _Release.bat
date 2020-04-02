@@ -15,4 +15,4 @@ C:\Factory\Tools\xcp.exe doc out
 
 C:\Factory\SubTools\zip.exe /O out HTTDir
 
-PAUSE
+IF NOT "%1" == "/-P" PAUSE

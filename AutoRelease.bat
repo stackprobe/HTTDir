@@ -1,4 +1,4 @@
-IF NOT EXIST HTTDir\. GOTO END
+IF NOT EXIST HTTDir_is_here.sig GOTO END
 CLS
 rem ÉäÉäÅ[ÉXÇµÇƒ qrum ÇµÇ‹Ç∑ÅB
 PAUSE
@@ -12,7 +12,7 @@ cx **
 
 CD /D %~dp0.
 
-IF NOT EXIST HTTDir\. GOTO END
+IF NOT EXIST HTTDir_is_here.sig GOTO END
 
 CALL qq
 cx **
