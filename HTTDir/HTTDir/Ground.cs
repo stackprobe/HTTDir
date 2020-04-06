@@ -12,7 +12,11 @@ namespace HTTDir
 	{
 		public const string HTT_APP_UUID = "{4a33312e-c34a-424e-bc11-31842fcbd78f}";
 
+		// ---- Items ----
+
 		public static bool AccessIconEnabled = false;
+
+		// ----
 
 		public static void LoadConfFile()
 		{
@@ -22,11 +26,19 @@ namespace HTTDir
 				lines = いらん行を除去(lines);
 				int c = 0;
 
+				if (int.Parse(lines[c++]) != lines.Length)
+					throw new Exception("Bad Item-Count");
+
+				// ---- Items ----
+
 				AccessIconEnabled = int.Parse(lines[c++]) != 0;
-				// ここへ追加..
+
+				// ----
 			}
-			catch
-			{ }
+			catch (Exception e)
+			{
+				SystemTools.WriteLog(e);
+			}
 		}
 
 		private static string[] いらん行を除去(string[] src)

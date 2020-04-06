@@ -90,6 +90,8 @@ namespace HTTDir
 
 			Gnd.HTTProc.Destroy_BusyDlg();
 			Gnd.HTTProc = null;
+
+			AccessMonitor.I_End();
 		}
 
 		private void 終了ToolStripMenuItem_Click(object sender, EventArgs e)

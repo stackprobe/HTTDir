@@ -7,7 +7,7 @@ using System.IO;
 
 namespace HTTDir
 {
-	public class AccessMonitor
+	public class AccessMonitor : IDisposable
 	{
 		private static AccessMonitor _i = null;
 
@@ -19,6 +19,15 @@ namespace HTTDir
 					_i = new AccessMonitor();
 
 				return _i;
+			}
+		}
+
+		public static void I_End()
+		{
+			if (_i != null)
+			{
+				_i.Dispose();
+				_i = null;
 			}
 		}
 
@@ -34,9 +43,10 @@ namespace HTTDir
 			_lastLogWrTime = DateTime.Now;
 		}
 
-		~AccessMonitor()
+		public void Dispose()
 		{
 			_logFileMutex.Close();
+			_logFileMutex = null;
 		}
 
 		public bool HasAccess()
