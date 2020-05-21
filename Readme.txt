@@ -15,3 +15,9 @@ http://stackprobe.dip.jp/HTTDir
 
 https://github.com/stackprobe/HTTDir/blob/master/doc/Readme.txt
 
+
+関連するリポジトリ
+------------------
+
+https://github.com/stackprobe/HTT
+
