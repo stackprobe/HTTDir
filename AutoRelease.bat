@@ -12,6 +12,13 @@ CALL ff
 cx **
 CD /D %~dp0.
 
+	CD ..\HTT
+
+	CALL qq
+	cx **
+
+	CD /D %~dp0.
+
 CALL qq
 cx **
 
