@@ -7,7 +7,7 @@ HTTDir
 ビルド済み配布物
 ----------------
 
-http://stackprobe.dip.jp/HTTDir
+http://stackprobe.ccsp.mydns.jp/HTTDir
 
 
 マニュアル
